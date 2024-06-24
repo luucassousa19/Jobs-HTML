@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+<html>
+
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DICAS DE VIAGEM DO SOUSA</title>
+</head>
+
+<body>
+<h1> DICAS DE VIAGEM BRASIL </h1>
+
+<h2> Selecione um Estado: </h2>
+
+<p> Olá viajantes!! Para saber tudo dos destinos mais
+procurados do Brasil, fiquem atentos ao nosso site!!</p>
+
+<button onclick="selecionarEstado('Bahia')">Bahia</button>
+<button onclick="selecionarEstado('Alagoas')">Alagoas</button>
+<button onclick="selecionarEstado('Paraiba')">Paraiba</button>
+<button onclick="selecionarEstado('Rio Grande do Norte')">Rio Grande do Norte</button>
+<button onclick="selecionarEstado('São Paulo')">São Paulo</button>
+
+<div id="subselecao" style="margin-top: 20px;"></div>
+
+<script>
+    function selecionarEstado(estado) {
+        let subselecao = document.getElementById('subselecao');
+        if (estado === 'Bahia') {
+            subselecao.innerHTML = `
+                <h2>Selecione um Local</h2>
+                <button onclick="alertarCidade('Porto Seguro')">Porto Seguro</button>
+                <button onclick="alertarCidade('Arraial d Ajuda')">Arraial d'Ajuda</button>
+                <button onclick="alertarCidade('Trancoso')">Trancoso</button>
+                <button onclick="alertarCidade('Cabrália')">Cabrália</button>
+            `;
+        } else {
+            subselecao.innerHTML = '';
+            alert("Você selecionou o estado: " + estado);
+        }
+    }
+
+    function alertarCidade(cidade) {
+        alert("Você selecionou a cidade: " + cidade);
+    }
+</script>
+</body>
+
+</html>
+
