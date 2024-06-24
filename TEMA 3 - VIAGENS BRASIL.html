@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Estados</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>DICAS DE VIAGEM BRASIL</h1>
+    <h2>Selecione um Estado</h2>
+
+    <button onclick="selecionarEstado('Bahia')">Bahia</button>
+    <button onclick="selecionarEstado('Alagoas')">Alagoas</button>
+    <button onclick="selecionarEstado('Paraíba')">Paraíba</button>
+    <button onclick="selecionarEstado('Rio Grande do Norte')">Rio Grande do Norte</button>
+    <button onclick="selecionarEstado('São Paulo')">São Paulo</button>
+
+    <div id="subselecao" style="margin-top: 20px;"></div>
+    <div id="informacoes" style="margin-top: 20px;"></div>
+
+    <script>
+        function selecionarEstado(estado) {
+            let subselecao = document.getElementById('subselecao');
+            let informacoes = document.getElementById('informacoes');
+            switch (estado) {
+                case 'Bahia':
+                    subselecao.innerHTML = `
+                        <h2>Selecione uma Cidade</h2>
+                        <button onclick="mostrarInformacoes('Porto Seguro', 'Bahia')">Porto Seguro</button>
+                        <button onclick="mostrarInformacoes('Arraial d Ajuda', 'Bahia')">Arraial d'Ajuda</button>
+                        <button onclick="mostrarInformacoes('Trancoso', 'Bahia')">Trancoso</button>
+                        <button onclick="mostrarInformacoes('Cabrália', 'Bahia')">Cabrália</button>
+                    `;
+                    break;
+                case 'Alagoas':
+                    subselecao.innerHTML = `
+                        <h2>Selecione uma Cidade</h2>
+                        <button onclick="mostrarInformacoes('Maceio', 'Alagoas')">Maceió</button>
+                        <button onclick="mostrarInformacoes('Marechal Deodoro', 'Alagoas')">Marechal Deodoro</button>
+                        <button onclick="mostrarInformacoes('Maragogi', 'Alagoas')">Maragogi</button>
+                        <button onclick="mostrarInformacoes('São Miguel dos Milagres', 'Alagoas')">São Miguel dos Milagres</button>
+                    `;
+                    break;
+                case 'Paraíba':
+                    subselecao.innerHTML = `
+                        <h2>Selecione uma Cidade</h2>
+                        <button onclick="mostrarInformacoes('João Pessoa', 'Paraíba')">João Pessoa</button>
+                        <button onclick="mostrarInformacoes('Conde', 'Paraíba')">Conde</button>
+                        <button onclick="mostrarInformacoes('Locais Históricos', 'Paraíba')">Locais Históricos</button>
+                    `;
+                    break;
+                case 'Rio Grande do Norte':
+                    subselecao.innerHTML = `
+                        <h2>Selecione uma Cidade</h2>
+                        <button onclick="mostrarInformacoes('Natal', 'Rio Grande do Norte')">Natal</button>
+                        <button onclick="mostrarInformacoes('Mossoró', 'Rio Grande do Norte')">Mossoró</button>
+                        <button onclick="mostrarInformacoes('Tibau do Sul', 'Rio Grande do Norte')">Tibau do Sul</button>
+                    `;
+                    break;
+                case 'São Paulo':
+                    subselecao.innerHTML = `
+                        <h2>Selecione uma Cidade</h2>
+                        <button onclick="mostrarInformacoes('São Paulo', 'São Paulo')">São Paulo</button>
+                        <button onclick="mostrarInformacoes('Aparecida', 'São Paulo')">Aparecida</button>
+                        <button onclick="mostrarInformacoes('Campos do Jordão', 'São Paulo')">Campos do Jordão</button>
+                    `;
+                    break;
+                default:
+                    subselecao.innerHTML = '';
+                    informacoes.innerHTML = '';
+                    alert("Você selecionou o estado: " + estado);
+                    break;
+            }
+            informacoes.innerHTML = '';
+        }
+
+        function mostrarInformacoes(cidade, estado) {
+            let informacoes = document.getElementById('informacoes');
+            let praias = {
+                'Bahia': {
+                    'Porto Seguro': ['Praia de Taperapuã', 'Praia do Mutá', 'Praia de Curuípe'],
+                    'Arraial d Ajuda': ['Praia do Mucugê', 'Praia da Pitinga', 'Praia de Taípe'],
+                    'Trancoso': ['Praia dos Nativos', 'Praia dos Coqueiros', 'Praia do Espelho'],
+                    'Cabrália': ['Praia de Coroa Vermelha', 'Praia do Mutá', 'Praia de Santo Agostinho']
+                },
+                'Alagoas': {
+                    'Maceio': ['Praia de Ipioca', 'Praia de Pajuçara', 'Praia de Ponta Verde'],
+                    'Marechal Deodoro': ['Praia da Barra de São Miguel', 'Praia do Frances ', 'Praia do Gunga'],
+                    'Maragogi': ['Praia de Maragogi', 'Praia de Antunes', 'Praia do Espelho', 'Praia da Barra Grande', 'Praia de Japaratinga'],
+                    'São Miguel dos Milagres': ['Praia de São Miguel dos Milagres', 'Praia do Toque', 'Praia do Marceneiro']
+                },
+                'Paraíba': {
+                    'João Pessoa': ['Praia de Tambaú', 'Praia do Cabo Branco', 'Praia do Bessa'],
+					'Conde': ['Praia de Tambaba', 'Praia de Coqueirinho', 'Praia de Jacuma'],
+                    'Locais Históricos': ['Largo de São Franscisco', 'Igreja Nossa Senhora das Neves', 'Igreja Nossa Senhora do Carmo'],
+
+                },
+                'Rio Grande do Norte': {
+                    'Natal': ['Praia de Ponta Negra', 'Praia do Forte', 'Praia de Genipabu'],
+                    'Mossoró': ['Praia de Tibau', 'Praia de Canoa Quebrada'],
+                    'Tibau do Sul': ['Praia da Pipa', 'Praia do Amor', 'Praia do Madeiro'],
+
+                },
+                'São Paulo': {
+                    'São Paulo': ['Arena Corinthinas', 'Parque Ibirapuera', 'Circuito de Interlagos', 'Avenida Paulista'],
+                    'Aparecida': ['Basilica de Nossa Senhora Aparecida', 'Sala dos Milagres', 'Morro dos Presépios', 'Passarela da Fé', 'Bondinho', 'Feira livre de Artesanato'],
+                    'Campos do Jordão': ['Portal de entrada', 'Centrinho - Capivari', 'Pico do Itapeva', 'Parque Amantikir', 'Horto Florestal Municipal'],
+                }
+            };
+
+            let valoresPassagens = {
+                'Bahia': 'R$ 800,00',
+                'Alagoas': 'R$ 1.500,00',
+                'Paraíba': 'R$ 1.200,00',
+                'Rio Grande do Norte': 'R$ 1.300,00',
+                'São Paulo': 'R$ 900,00'
+            };
+
+            let aluguelCarro = {
+                'Bahia': 'R$ 150,00/dia',
+                'Alagoas': 'R$ 167,00/dia',
+                'Paraíba': 'R$ 140,00/dia',
+                'Rio Grande do Norte': 'R$ 160,00/dia',
+                'São Paulo': 'R$ 180,00/dia'
+            };
+
+            let alimentacao = {
+                'Bahia': 'R$ 100,00/dia',
+                'Alagoas': 'R$ 126,80/dia',
+                'Paraíba': 'R$ 110,00/dia',
+                'Rio Grande do Norte': 'R$ 115,00/dia',
+                'São Paulo': 'R$ 180,00/dia'
+            };
+
+            informacoes.innerHTML = `
+                <h2>Informações de ${cidade}</h2>
+                <table>
+                    <tr>
+                        <th>Valores das Passagens</th>
+                        <th>Aluguel de Carro</th>
+                        <th>Gastos com Alimentação por Dia</th>
+                        <th>Nomes das Praias</th>
+                    </tr>
+                    <tr>
+                        <td>${valoresPassagens[estado]}</td>
+                        <td>${aluguelCarro[estado]}</td>
+                        <td>${alimentacao[estado]}</td>
+                        <td>${praias[estado][cidade].join(', ')}</td>
+                    </tr>
+                </table>
+            `;
+        }
+    </script>
+</body>
+</html>
