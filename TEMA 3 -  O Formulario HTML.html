@@ -1,82 +1,36 @@
+<!doctype html>
 
+<html>
 
+<head>
 
+<title> Formulário Cadastro</title>
+</head>
 
+<body>
 
+<form>
+<label for="nome">Nome: </label>
+<input type="text" name="nome" required>
 
+<br>
+<label for="email">E-mail:</label>
+<input type="email" name="email" required>
+<br>
 
+<label for="tel">Telefone:</label>
+<input type="tel" name="telefone" required>
+<br>
 
+<label for="nascimento">Data de Nascimento:</label>
+<input type="date" name="nascimento" required>
+<br>
 
-<form action="/pagina-processa-dados-do-form" method="post">
+<label for="mensagem">Mensagem:</label>
+<textarea name="mensagem" cols="30" rows="4"> </textarea>
+<br>
 
-<fieldset>
-
-<legend>Dados Gerais</legend>
-<label for="nome">Nome:</label>
-<input type="text" minlength="3" id:"nome"/>
-
-<label for="data_nascimento">Data de Nascimento:</label>
-<input type="text" id="data_nascimento"/>
-
-<label for="cpf">CPF:</label>
-<input type="cpf" minlength="11" id:"cpf"/>
-
-</fieldset>
-
-<fieldset>
-
-<legend>Endereço</legend>
-
-<label for="tipo_endereco">Tipo:</label>
-<select id="tipo_endereco">
-<option
-value="">Selecione</option>
-<option value="">Rua</option>
-<option value="">Avenida</option>
-<option value="">Rodovia</option>
-<option value="">Outros</option>
-</select>
-
-<label for="logradouro_endereco">Logradouro:</label>
-<input type="text" id:"logradouro_endereco"/>
-
-<label for="numero_endereco">Número:</label>
-<input type="text" id:"numero_endereco"/>
-
-<label for="complemento_endereco">Complemento:</label>
-<input type="text" id:"complemento_endereco"/>
-
-</fieldset>
-
-
-<fieldset>
-
-<legend>Fale Conosco:</legend>
-<label for="msg">Mensagem:</label>
-<textarea type="text" id:"msg">
-</textarea>
-
-</fieldset>
-
-
-<fieldset>
-
-<button type="submit">Enviar sua mensagem</button>
-<button type="reset">Limpar o Formulário  </button>
-
-</fieldset>
+<input type="submit" value="Enviar">
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</body>
+</html>
